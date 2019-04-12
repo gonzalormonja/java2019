@@ -5,16 +5,16 @@ import java.util.Scanner;
 public class Principal {
 	static Empleado[] empleados = new Empleado[20];
 	public static void crearEmpleados() {
-		for(int i = 0; i<20;i++) {
+		for(int i = 0; i<empleados.length;i++) {
 			System.out.println("El empleado numero "+(i+1)+" es vendedor(v) o es administrativo(a)");
 			Scanner sc = new Scanner(System.in);
 			String resp = sc.nextLine();
-			/*String nombre = "gonzalo";
+			String nombre = "gonzalo";
 			String apellido = "monja";
 			int dni = 40984288;
 			String email = "gonzalormonja1@gmail.com";
-			double sueldoBase = 235.50;*/
-			System.out.println("Ingrese el nombre del empleado");
+			double sueldoBase = 235.50;
+			/*System.out.println("Ingrese el nombre del empleado");
 			String nombre = sc.nextLine();
 
 			System.out.println("Ingrese el apellido del empleado");
@@ -28,28 +28,30 @@ public class Principal {
 
 			System.out.println("Ingrese el sueldoBase del empleado");
 			double sueldoBase = sc.nextDouble();
+			*/
 			
 			if(resp.equalsIgnoreCase("v")){
-				/*
+				
 				double porcenComision = 10.5;
 				double totalVentas = 0;
-				*/
-				System.out.println("Ingrese el sueldoBase del empleado");
+				
+				/*System.out.println("Ingrese el porcentaje de comision del empleado");
 				double porcenComision = sc.nextDouble();
-				System.out.println("Ingrese el sueldoBase del empleado");
-				double totalVentas = sc.nextDouble();
+				System.out.println("Ingrese el total de ventas del empleado");
+				double totalVentas = sc.nextDouble();*/
 				Vendedor vend = new Vendedor(dni, nombre, apellido, email, sueldoBase, porcenComision, totalVentas);
 				empleados[i]=vend;
 			}else {
-				/*double hsExtra = 5;
-				double hsMes = 30;*/
-				System.out.println("Ingrese las horass Extra del empleado");
+				double hsExtra = 5;
+				double hsMes = 30;
+				/*System.out.println("Ingrese las horas Extra del empleado");
 				double hsExtra = sc.nextDouble();
 				System.out.println("Ingrese las horas del mes del empleado");
-				double hsMes = sc.nextDouble();
+				double hsMes = sc.nextDouble();*/
 				Administrativo adm = new Administrativo(dni,nombre,apellido,email,sueldoBase,hsExtra,hsMes);
 				empleados[i]=adm;
 			}
+			sc.close();
 		}
 	}
 	public static void mostrarEmplados() {
@@ -66,3 +68,4 @@ public class Principal {
 	}
 
 }
+
