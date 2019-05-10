@@ -1,0 +1,96 @@
+package javaArrayList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class arrayList1 {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		ArrayList<String> palabras = new ArrayList<String>();
+		boolean cont = true;
+		while(cont) {
+			System.out.println();
+			System.out.print("Ingrese una palabra");
+			palabras.add(s.nextLine());
+			System.out.println("palabras ingresadas: "+palabras.size());
+			System.out.println("desea ingresar una nueva palabra?");
+			String pal2 = s.nextLine();
+			if(pal2.equals("s")) {
+				cont = true;
+			}else {
+				cont=false;
+			}
+		}
+		mostrarTodo(palabras);
+		System.out.println(palabras.get(palabras.size()-1));
+	
+	
+	
+		System.out.println();
+		System.out.println("Ingrese una palabra a buscar");
+		String aBuscar = s.nextLine();
+		
+		String contiene;
+		
+		if(palabras.contains(aBuscar)) {
+			contiene = "si";
+		}else {
+			contiene = "no";
+		}
+		
+		System.out.println("El arraylist palabras "
+				+contiene
+				+ " contiene la palabra "
+				+ aBuscar+" en la posicion "
+				+palabras.indexOf(aBuscar));
+		System.out.println();
+		System.out.println("Ingrese una palabra a insertar: ");
+		String aInsertar = s.next();
+		System.out.println("ingrese una posicion para insertarlo: ");
+		int posIns = 1;
+		palabras.add(posIns,aInsertar);
+		
+		mostrarTodo(palabras);
+		
+		
+		System.out.println("ingrese la palabra de remplazo");
+		String aRemplazar = s.next();
+		System.out.println("ingrese la posicion de remplazo");
+		int posicionRemplazo = Integer.parseInt(s.nextLine());
+		
+		palabras.set(posicionRemplazo, aRemplazar);
+		
+		System.out.println("Ingrese palabra a eliminar");
+		String aEliminar = s.nextLine();
+		
+		palabras.remove(aEliminar);
+		
+		mostrarTodo(palabras);
+		
+		
+		System.out.println("Ingrese posicion a eliminar");
+		String posEliminar = s.nextLine();
+		
+		palabras.remove(posEliminar);
+		
+		mostrarTodo(palabras);
+
+		
+		s.close();
+		
+		
+		
+	}
+
+	private static void mostrarTodo(ArrayList<String> palabras) {
+		System.out.println();
+		System.out.println("palabras modificadas: ");
+		System.out.println("#######################");
+		for(String pal:palabras) {
+			System.out.println(pal);
+		}
+	}
+		
+	
+	
+}
